@@ -9,6 +9,7 @@ gem "bcrypt"
 gem "bootstrap-sass"
 gem 'rails-controller-testing'
 gem "byebug"
+gem "webpacker"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
