@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <%= render "layouts/head" %>
-    <%= render "layouts/shim" %>
+    <head>
+        <title><% full_title(yield(:title)) %></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= render "layouts/head" %>
+        <%= render "layouts/shim" %>
     <body>
         <%= render "layouts/header" %>
         <div class="container">
@@ -12,5 +18,7 @@
             <%= render 'layouts/footer' %>
             <%= debug(params) if Rails.env.development? %>
         </div>
+        <%= javascript_include_tag 'application' %>
+
     </body>
 </html>
