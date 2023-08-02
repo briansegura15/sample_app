@@ -9,7 +9,8 @@ class User < ApplicationRecord
                       uniqueness: true
     has_secure_password
     validates :password, presence: true,
-                         length: { minimum: 6 }
+                         length: { minimum: 6 },
+                         allow_nil: true
 
     # Returns the hash digest of the given string.
     def User.digest(string)
@@ -31,7 +32,7 @@ class User < ApplicationRecord
     end
 
     # Returns a session token to prevent session hijacking.
-    # We reuse the remember digest for convenience.
+    # We re-use the remember digest for convenience.
     def session_token
         remember_digest || remember
     end
