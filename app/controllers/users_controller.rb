@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       # Handle a successful update.
       flash[:success] = "Profile updated"
@@ -42,21 +41,24 @@ class UsersController < ApplicationController
   private
 
     def user_params
-        params.require(:user)
-        .permit(:name, :email, :password,:password_confirmation)
+        params.require(:user).permit(:name, :email, :password,:password_confirmation)
     end
 
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
+    # Before Filters
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless @user == current_user
-  end
+    # Confirms a logged in user
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
       
 end
