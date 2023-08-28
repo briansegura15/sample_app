@@ -4,6 +4,7 @@ michael:
   name: Michael Example
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
+  admin: true
   # remember_digest: <%= User.new_token %>
   admin: true
   activated: true
