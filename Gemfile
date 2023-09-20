@@ -5,6 +5,9 @@ ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
+gem 'image_processing'
+gem 'mini_magick'
+gem 'active_storage_validations'
 gem "bcrypt"
 gem "faker"
 gem "will_paginate"
@@ -53,6 +56,11 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+group :production do
+  gem 'pg'
+  gem 'aws-sdk-s3', require: false
+end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
