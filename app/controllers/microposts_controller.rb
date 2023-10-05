@@ -5,6 +5,12 @@ class MicropostsController < ApplicationController
     def create
         @micropost = current_user.microposts.build(micropost_params)
         @micropost.image.attach(params[:micropost][:image])
+
+
+          # Log information about the image and display_image
+        Rails.logger.debug("Image: #{@micropost.image}")
+        Rails.logger.debug("Display Image: #{@micropost.display_image}")
+
         if @micropost.save
             flash[:success] = "Micropost created!"
             redirect_to root_url
