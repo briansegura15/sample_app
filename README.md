@@ -1,5 +1,7 @@
 # Ruby on Rails Twitter Clone Application
 
+<img src="https://media.giphy.com/media/68hCnsv0HTElL3Q5zJ/giphy.gif" width="1000" height="400"/>
+
 ## Description:
 
 The Ruby on Rails Twitter Clone app is a full-featured web application using the Ruby on Rails framework. The project covers a wide range of topics, including:
